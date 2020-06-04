@@ -1,11 +1,12 @@
 import {html, render, TemplateResult} from 'lit-html';
 
-function sayHello(name: string): TemplateResult {
-  return html`<h1>Hello ${name}</h1>`;
+function clickMe(event: MouseEvent) {
+  alert(`Hello! (event: ${event}`);
 }
 
-render(sayHello('world'), document.body);
+function sayHello(): TemplateResult {
+  return html`<button @click="${clickMe}">Click me</button>`;
+}
 
-setTimeout(() => {
-  render(sayHello('lit-html'), document.body);
-}, 1000)
+render(sayHello(), document.body);
+
